@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القرآن الكريم - نور الهدى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- خط القرآن -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-wrapper {
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+        }
+
+        .surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .surah-card {
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .surah-number-badge {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .ayahs-box {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            line-height: 2.2;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .ayah {
+            display: inline;
+        }
+
+        .ayah-number {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,5 95,28 95,73 50,95 5,73 5,28" fill="none" stroke="%23d7b56d" stroke-width="4"/></svg>') center/cover;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            color: var(--primary-color);
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="glass-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-mosque"></i> نور الهدى</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="quran.html" class="active">القرآن الكريم</a></li>
+                    <li><a href="hadith.html">الأحاديث النبوية</a></li>
+                    <li><a href="prayer.html">مواقيت الصلاة</a></li>
+                    <li><a href="azkar.html">الأذكار</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                    <li><a href="zakat.html">الزكاة</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+            <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="container page-wrapper">
+        <!-- قسم قائمة السور -->
+        <div id="surahs-list-view">
+            <h2 class="section-title">فهرس القرآن الكريم</h2>
+            <div id="loader" style="text-align: center; font-size: 2rem; color: var(--primary-color);">
+                <i class="fa-solid fa-spinner fa-spin"></i> جاري التحميل...
+            </div>
+            <div id="surah-grid" class="surah-grid"></div>
+        </div>
+
+        <!-- قسم عرض آيات السورة -->
+        <div id="surah-content-view" style="display: none;">
+            <button class="btn btn-secondary" onclick="backToSurahs()" style="margin-bottom: 20px;">
+                <i class="fa-solid fa-arrow-right"></i> عودة للفهرس
+            </button>
+            <h2 id="current-surah-title" class="section-title"></h2>
+            <div id="ayahs-container" class="glass-panel ayahs-box"></div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="quran.js"></script>
+</body>
+
+</html>

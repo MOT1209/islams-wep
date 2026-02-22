@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الزكاة - نور الهدى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-wrapper {
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+        }
+
+        .zakat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-glass);
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: var(--transition-fast);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(11, 122, 117, 0.2);
+        }
+
+        body.dark-mode .form-input {
+            background: rgba(30, 41, 59, 0.8);
+            color: white;
+        }
+
+        .result-box {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(11, 122, 117, 0.1);
+            border-radius: var(--radius-md);
+            text-align: center;
+            display: none;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .result-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .result-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .info-alert {
+            padding: 15px;
+            border-left: 4px solid var(--secondary-color);
+            background: rgba(215, 181, 109, 0.1);
+            margin-bottom: 30px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="glass-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-mosque"></i> نور الهدى</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="quran.html">القرآن الكريم</a></li>
+                    <li><a href="hadith.html">الأحاديث النبوية</a></li>
+                    <li><a href="prayer.html">مواقيت الصلاة</a></li>
+                    <li><a href="azkar.html">الأذكار</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                    <li><a href="zakat.html" class="active">الزكاة</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+            <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="container page-wrapper">
+        <h2 class="section-title">حاسبة الزكاة الإلكترونية</h2>
+
+        <div class="glass-panel zakat-container">
+            <div class="info-alert">
+                <i class="fa-solid fa-circle-info"></i> <strong>ملاحظة:</strong> تُحسب زكاة المال والنقدين (الذهب
+                والفضة) وعروض التجارة بنسبة <strong>2.5%</strong> (أو ربع العشر) إذا بلغت النصاب وحال عليها الحول
+                المعين.
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="amount">أدخل قيمة المبلغ المدخر (المتوفر لديك):</label>
+                <input type="number" id="amount" class="form-input" placeholder="مثال: 50000" min="0">
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="calculateZakat()">
+                <i class="fa-solid fa-calculator"></i> احسب قيمة الزكاة الواجبة
+            </button>
+
+            <div id="result-box" class="result-box">
+                <div class="result-title">قيمة الزكاة المستحقة هي:</div>
+                <div id="result-amount" class="result-amount">0</div>
+                <div style="margin-top: 10px; color: var(--text-muted);">طهر أموالك تسعد في كليكما.</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="zakat.js"></script>
+</body>
+
+</html>
