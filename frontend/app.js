@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // إعداد Base URL لطلبات الـ API المحلية الخاصة بنا
-    window.API_BASE_URL = 'http://localhost:5000/api';
+    // عند الرفع في Vercel، المسار النسبي /api سيتكفل بالوصول لدالة Serverless
+    window.API_BASE_URL = '/api';
 
 });
